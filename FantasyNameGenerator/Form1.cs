@@ -18,6 +18,7 @@ namespace FantasyNameGenerator
         public bool chk1 = true;
         public bool chk2 = true;
 
+
         public Form1()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace FantasyNameGenerator
         {
             chk1 = checkBoxFirstN.Checked;
         }
+
 
         public void checkBoxLastN_CheckedChanged(object sender, EventArgs e)
         {
@@ -75,6 +77,7 @@ namespace FantasyNameGenerator
 
         }
 
+
         private void textBoxLastN_TextChanged(object sender, EventArgs e)
         {
 
@@ -87,14 +90,16 @@ namespace FantasyNameGenerator
         }
 
 
-        private void buttonDeleteN_Click(object sender, EventArgs e)
+        private void buttonAccept_Click(object sender, EventArgs e)
         {
-
+            FNGController.SaveFinalName(textBoxFirstN.Text, textBoxLastN.Text);
+            usedNamesList.DataSource = FNGController.ReadNameFile();
         }
 
-        private void buttonAccept_Click(object sender, EventArgs e)
-        { 
-            FNGController.SaveFinalName(textBoxFirstN.Text, textBoxLastN.Text);
+        //TODO
+        private void buttonDeleteN_Click(object sender, EventArgs e)
+        {
+            FNGController.DeleteName();
             usedNamesList.DataSource = FNGController.ReadNameFile();
         }
     }

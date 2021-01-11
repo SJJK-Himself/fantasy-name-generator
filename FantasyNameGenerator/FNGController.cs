@@ -8,11 +8,15 @@ using System.IO;
 namespace FantasyNameGenerator
 {
     class FNGController
-    {
+    {   
         /// <summary>
-        /// Is the path and file name for the file where the names get saved.
+        /// The String variables below are to be given the path and file name during initialization
         /// </summary>
-        public static String pathAndFile;
+        public static String winUserName;
+        public static String appDataDir;
+        public static String path;
+        public static String fileName;
+        public static String pathAndFileName;
 
 
         /// <summary>
@@ -68,60 +72,59 @@ namespace FantasyNameGenerator
 
 
         /// <summary>
-        /// Combines the path and file name into a String to be read during program initialization
+        /// Defines the path and file name
         /// </summary>
-        /// <returns></returns>
         public static void InitPath()
         {
-            String winUserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            String appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            String path = appDataDir + @"\FNGenerator\";
-            String fileName = "FantasyNames.txt";
-            pathAndFile = path + fileName;
+            winUserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            path = appDataDir + @"\FNGenerator\";
+            fileName = "FantasyNames.txt";
+            pathAndFileName = path + fileName;
         }
 
 
         /// <summary>
-        /// Combines the first name and/or last name into a String and writes it to a .txt file in \AppData\FNGenerator\ below the previous name
+        /// Combines the first name and/or last name into a String and writes it to a .txt file below the previous name
         /// </summary>
         /// <param name="firstN">Chosen first name</param>
         /// <param name="lastN">Chosen last name</param>
         public static void SaveFinalName(String firstN, String lastN)
         {
             String finalName = firstN + " " + lastN;
-
-            String winUserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            String appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            String path = appDataDir + @"\FNGenerator\";
-            String fileName = "FantasyNames.txt";
             String wholePath;
-            pathAndFile = path + fileName;
 
             System.IO.Directory.CreateDirectory(path);
-           wholePath = System.IO.Path.Combine(path, fileName);
+            wholePath = System.IO.Path.Combine(path, fileName);
 
             StreamWriter sw = new StreamWriter(wholePath, true);
             sw.WriteLine(finalName);
             sw.Close();
         }
 
+        //TODO
+        public static void DeleteName()
+        {
+            
+        }
 
-         /// <summary>
-         /// Reads the file of saved names and passes them as a list to usedNamesList in Form1
-         /// </summary>
-         /// <returns>The names on the file</returns>
-         public static List<String> ReadNameFile()
-         {
-             List<String> lines = new List<String>();
-             using (StreamReader r = new StreamReader(pathAndFile))
-             {
-                 String line;
-                 while ((line = r.ReadLine()) != null)
-                 {
-                     lines.Add(line);
-                 }
-             }
-             return lines;
-         }
+
+        /// <summary>
+        /// Reads the file of saved names and passes them as a list to usedNamesList in Form1
+        /// </summary>
+        /// <returns>The names on the file</returns>
+        public static List<String> ReadNameFile()
+        {
+            List<String> lines = new List<String>();
+            using (StreamReader r = new StreamReader(pathAndFileName))
+            {
+                String line;
+                while ((line = r.ReadLine()) != null)
+                {
+                    lines.Add(line);
+                }
+            }
+            return lines;
+        }
     }
 }

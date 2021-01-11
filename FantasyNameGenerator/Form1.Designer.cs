@@ -136,6 +136,7 @@
             this.Controls.Add(this.textBoxLastN);
             this.Controls.Add(this.textBoxFirstN);
             this.Controls.Add(this.usedNamesList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Fantasy name generator";
