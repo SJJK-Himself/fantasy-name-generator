@@ -1,9 +1,0 @@
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\bin\Debug\FantasyNameGenerator.exe.config
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\bin\Debug\FantasyNameGenerator.exe
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\bin\Debug\FantasyNameGenerator.pdb
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\obj\Debug\FantasyNameGenerator.Form1.resources
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\obj\Debug\FantasyNameGenerator.Properties.Resources.resources
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\obj\Debug\FantasyNameGenerator.csproj.GenerateResource.cache
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\obj\Debug\FantasyNameGenerator.csproj.CoreCompileInputs.cache
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\obj\Debug\FantasyNameGenerator.exe
-C:\Users\Sampo\Documents\VS Projects\FantasyNameGenerator\obj\Debug\FantasyNameGenerator.pdb
