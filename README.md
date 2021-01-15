@@ -1,2 +1,4 @@
 # Fantasy-Name-Generator
-A small program with a GUI, that generates names suitable for fantasy characters.
+A small WIP project with a GUI, that generates names suitable for fantasy characters.
+
+Delete-button is not working yet, everything else is operational.
