@@ -22,7 +22,7 @@ namespace FantasyNameGenerator
         /// <summary>
         /// Creates an instance of Random class
         /// </summary>
-        static Random rnd = new Random();
+        static readonly Random rnd = new Random();
 
 
         /// <summary>
@@ -80,7 +80,10 @@ namespace FantasyNameGenerator
             appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             path = appDataDir + @"\FNGenerator\";
             fileName = "FantasyNames.txt";
-            pathAndFileName = path + fileName;
+            pathAndFileName = Path.Combine(path, fileName);
+            DirectoryInfo di = Directory.CreateDirectory(path);
+            StreamWriter sw = new StreamWriter(pathAndFileName, true);
+            sw.Close();
         }
 
 
@@ -92,12 +95,10 @@ namespace FantasyNameGenerator
         public static void SaveFinalName(String firstN, String lastN)
         {
             String finalName = firstN + " " + lastN;
-            String wholePath;
 
             System.IO.Directory.CreateDirectory(path);
-            wholePath = System.IO.Path.Combine(path, fileName);
 
-            StreamWriter sw = new StreamWriter(wholePath, true);
+            StreamWriter sw = new StreamWriter(pathAndFileName, true);
             sw.WriteLine(finalName);
             sw.Close();
         }
